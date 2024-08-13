@@ -43,4 +43,4 @@ ACE is a backend ridesharing application designed to help college students find 
 4. Set up the PostgreSQL database:
 
    Create a new PostgreSQL database.
-   Update the database connection details in config.py or the environment variables.
+   Update the database connection details in config.py or the environment variables. 
