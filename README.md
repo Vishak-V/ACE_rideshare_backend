@@ -31,16 +31,16 @@ ACE is a backend ridesharing application designed to help college students find 
    ```
 2. Set up a virtual environment and activate it:
 
-```bash
-python -m venv venv
-source venv/bin/activate
-```
+   ```bash
+   python -m venv venv
+   source venv/bin/activate
+   ```
 3. Install the dependencies:
 
-```bash
-pip install -r requirements.txt
-```
+   ```bash
+   pip install -r requirements.txt
+   ```
 4. Set up the PostgreSQL database:
 
-Create a new PostgreSQL database.
-Update the database connection details in config.py or the environment variables.
+   Create a new PostgreSQL database.
+   Update the database connection details in config.py or the environment variables.
