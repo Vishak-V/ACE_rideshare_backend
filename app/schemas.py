@@ -78,6 +78,8 @@ class TokenData(BaseModel):
 
 class Join(BaseModel):
     tripId: str
+    checkBags: int
+    carryOnBags:int
     dir: int
     class config:
         orm_mode=True

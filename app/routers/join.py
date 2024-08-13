@@ -21,6 +21,11 @@ def join_trip(join: schemas.Join,db: Session=Depends(get_db),currentUser: int = 
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="You cannot join your own trip")
         if trip.slotVacant<=0:
             raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="This trip is already full")
+        if trip.checkedBagLimit<join.checkBags:
+            raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="You have too many checked bags")
+        if trip.carryOnLimit<join.carryOnBags:
+            raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="You have too many carry on bags")
+        
         if group:
             raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="You have already joined this trip")
         if db.query(models.Join).filter(models.Join.userId==currentUser.id).first():
