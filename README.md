@@ -28,3 +28,19 @@ ACE is a backend ridesharing application designed to help college students find 
    ```bash
    git clone https://github.com/yourusername/ACE.git
    cd ACE
+   ```
+2.Set up a virtual environment and activate it:
+
+```bash
+python -m venv venv
+source venv/bin/activate
+```
+Install the dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+Set up the PostgreSQL database:
+
+Create a new PostgreSQL database.
+Update the database connection details in config.py or the environment variables.
