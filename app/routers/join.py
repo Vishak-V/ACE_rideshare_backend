@@ -31,6 +31,8 @@ def join_trip(join: schemas.Join,db: Session=Depends(get_db),currentUser: int = 
         if db.query(models.Join).filter(models.Join.userId==currentUser.id).first():
             raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="You have already joined a trip")
         db.query(models.Trip).filter(models.Trip.id==join.tripId).update({"slotVacant": trip.slotVacant-1})
+        db.query(models.Trip).filter(models.Trip.id==join.tripId).update({"checkedBagLimit": trip.checkedBagLimit-join.checkBags})
+        db.query(models.Trip).filter(models.Trip.id==join.tripId).update({"carryOnLimit": trip.carryOnLimit-join.carryOnBags})
         new_group=models.Join(userId=currentUser.id,tripId=join.tripId)
         db.add(new_group)
         db.commit()
